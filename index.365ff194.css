@@ -1,0 +1,54 @@
+body {
+  overflow: hidden;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: 2fr 3fr .5fr;
+  display: grid;
+}
+
+.portrait-wrapper {
+  background: var(--background-color);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.portrait {
+  height: 80%;
+}
+
+.text-area {
+  background-color: var(--base-color1);
+  padding-top: 5%;
+}
+
+.about-heading, .about-intro {
+  color: var(--spare-color);
+  font-family: Ubuntu, sans-serif;
+}
+
+.about-heading {
+  text-align: center;
+}
+
+.about-intro {
+  margin-top: 30px;
+}
+
+.back-slide {
+  background-color: var(--base-color1);
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.fa-circle-arrow-right {
+  color: var(--spare-color);
+  font-size: 3rem;
+}
+
+/*# sourceMappingURL=index.365ff194.css.map */
