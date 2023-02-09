@@ -1,0 +1,27 @@
+:root {
+    --base-color1: #C2EDCE;
+    --base-color2: #6FB3B8;
+    --base-color3: #BADFE7;
+    --highlight-color: #F6F6F2;
+    --background-color: #F2F5FF;
+    --spare-color: #388087;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: var(--background-color);
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+}
+

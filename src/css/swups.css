@@ -1,0 +1,21 @@
+.transition-swipe-up {
+    transition: 0.4s;
+}
+
+html.is-animating .transition-swipe-up {
+    transform: translateY(-70%);
+}
+
+html.is-leaving .transition-swipe-up {
+    transform: translateY(-70%);
+    transition: 1s;
+}
+
+.transition-swipe-right {
+    transition: 0.8s;
+    transform-origin: right;
+}
+
+html.is-animating .transition-swipe-right {
+    transform: translateX(-100%);
+}

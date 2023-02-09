@@ -1,0 +1,26 @@
+{
+  "name": "website-final",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thomas-Joseph-Ryan/Thomas-Joseph-Ryan.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thomas-Joseph-Ryan/Thomas-Joseph-Ryan.github.io/issues"
+  },
+  "homepage": "https://github.com/Thomas-Joseph-Ryan/Thomas-Joseph-Ryan.github.io#readme",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "swup": "^3.0.4"
+  }
+}

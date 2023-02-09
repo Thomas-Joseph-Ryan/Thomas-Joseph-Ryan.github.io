@@ -1,0 +1,311 @@
+:root {
+    --radius: 30px;
+
+    /* To create expanding nav boxes */
+    --right-box-offset: 180px;
+    --center-scale: 1.51;
+    --nav-box-height: 125px;
+}
+
+body {
+    overflow: hidden;
+}
+
+.nav-text {
+    opacity: 0;
+}
+
+.nav-wrapper {
+    position: absolute;
+    width: 60%;
+    height: 20%;
+    top: 40%;
+    left: 20%;
+}
+  
+.nav-dot {
+    position: absolute;
+    top: calc(50% - var(--radius));
+    -webkit-animation: bounce 1s ease-in-out 0s 1;
+            animation: bounce 1s ease-in-out 0s 1;
+}
+  
+.nav-dot:nth-child(2) {
+    -webkit-animation-delay: 150ms;
+            animation-delay: 150ms;
+}
+  
+.nav-dot:nth-child(3) {
+    -webkit-animation-delay: 300ms;
+            animation-delay: 300ms;
+}
+
+.nav-dot.left {
+    left: calc(40% - var(--radius));
+    background: var(--base-color1);
+}
+
+.nav-dot.center {
+    left: calc(50% - var(--radius));
+    background: var(--base-color3);
+}
+  
+.nav-dot.right {
+    right: calc(40% + var(--radius));
+    background: var(--base-color2);
+}
+  
+.left-box {
+    position: absolute;
+    height: calc(2 * var(--radius));
+    width: var(--radius);
+    background: inherit;
+    border-radius: var(--radius) 0 0 var(--radius);
+}
+  
+.center-box {
+    position: absolute;
+    height: calc(2 * var(--radius));
+    width: 100px;
+    transform: scaleX(0.01);
+    transform-origin: left;
+    left: var(--radius);
+    background: inherit;
+}
+  
+.right-box {
+    position: absolute;
+    height: calc(2 * var(--radius));
+    width: var(--radius);
+    transform: translateX(var(--radius));
+    background: inherit;
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+@-webkit-keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    
+    50% {
+      transform: translateY(-15px);
+    }
+    
+    100% {
+      transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    
+    50% {
+      transform: translateY(-15px);
+    }
+    
+    100% {
+      transform: translateY(0);
+    }
+}
+
+/* 
+    Expanding nav boxes inspired by https://pqina.nl/blog/animating-width-and-height-without-the-squish-effect/
+
+    Activating the nav boxes
+*/
+
+.nav-dot[data-status="activating"] {
+    cursor: default;
+    transition-duration: 1s;
+    top: calc(50% - var(--nav-box-height)/2);
+}
+
+.nav-dot.left[data-status="activating"] {
+    left: 0px;
+}
+
+.nav-dot.center[data-status="activating"] {
+    left: calc(50% - var(--right-box-offset)/2 - var(--radius)/2);
+}
+
+.nav-dot.right[data-status="activating"] {
+    right: calc(var(--right-box-offset) + var(--radius));
+}
+
+.nav-dot[data-status="activating"] > .left-box,
+.nav-dot[data-status="activating"] > .center-box,
+.nav-dot[data-status="activating"] > .right-box {
+    transition-duration: 1s;
+    height: var(--nav-box-height);
+}
+
+.nav-dot[data-status="activating"] > .center-box {
+    transform-origin: left;
+    -webkit-animation: center-animate 1.5s ease 1 forwards;
+            animation: center-animate 1.5s ease 1 forwards;
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+}
+
+.nav-dot[data-status="activating"] > .right-box {
+    -webkit-animation: right-animate 1.5s ease 1 forwards;
+            animation: right-animate 1.5s ease 1 forwards;
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+}
+
+@-webkit-keyframes right-animate {
+    0% {
+        transform: translateX(var(--radius));
+    }
+    100% {
+        transform: translateX(var(--right-box-offset));
+    }
+}
+
+@keyframes right-animate {
+    0% {
+        transform: translateX(var(--radius));
+    }
+    100% {
+        transform: translateX(var(--right-box-offset));
+    }
+}
+
+@-webkit-keyframes center-animate {
+    0% { transform: scaleX(0.01) }
+    100% { transform: scaleX(var(--center-scale)) }
+}
+
+@keyframes center-animate {
+    0% { transform: scaleX(0.01) }
+    100% { transform: scaleX(var(--center-scale)) }
+}
+
+/* 
+    Nav boxes now in place, need to make them buttons and interactable now.
+*/
+
+.nav-dot[data-status="activated"] {
+    cursor: pointer;
+    transition-duration: 1s;
+    top: calc(50% - var(--nav-box-height)/2);
+}
+
+.nav-dot.left[data-status="activated"] {
+    left: 0px;
+}
+
+.nav-dot.center[data-status="activated"] {
+    left: calc(50% - var(--right-box-offset)/2 - var(--radius)/2);
+}
+
+.nav-dot.right[data-status="activated"] {
+    right: calc(var(--right-box-offset) + var(--radius));
+}
+
+.nav-dot[data-status="activated"] > .left-box,
+.nav-dot[data-status="activated"] > .center-box,
+.nav-dot[data-status="activated"] > .right-box {
+    transition-duration: 0s;
+    height: var(--nav-box-height);
+}
+
+.nav-dot[data-status="activated"] > .center-box {
+    transform-origin: left;
+    width: calc(100px * var(--center-scale));
+    transform: none;
+}
+
+.nav-dot[data-status="activated"] > .right-box {
+    transform: translateX(var(--right-box-offset));
+}
+
+.nav-dot[data-status="activated"] > .center-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-dot[data-status="activated"] > .center-box > .nav-text {
+    color: var(--spare-color);
+    font-family: 'Secular One', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration: none;
+    -webkit-animation: text-fade-in 500ms linear 0ms 1 forwards;
+            animation: text-fade-in 500ms linear 0ms 1 forwards;
+}
+
+.nav-dot[data-status="activated"]:hover > .center-box > .nav-text {
+    color: var(--highlight-color);
+    transition: 300ms;
+}
+
+@-webkit-keyframes text-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+@keyframes text-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 1100px) {
+    .nav-wrapper {
+        width: 70%;
+        left: 15%;
+    }
+
+    
+    .nav-dot[data-status="activated"] > .center-box > .nav-text {
+        transition-duration: 0ms;
+        font-size: 1.7rem;
+    }
+}
+
+@media only screen and (max-width: 870px){
+    :root {
+        --radius: 20px;
+
+        /* To create expanding nav boxes */
+        --right-box-offset: 130px;
+        --center-scale: 1.11;
+        --nav-box-height: 125px;
+    }
+
+    .nav-dot[data-status="activated"] > .center-box > .nav-text {
+        transition-duration: 0ms;
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 660px){
+    :root {
+        --radius: 10px;
+
+        /* To create expanding nav boxes */
+        --right-box-offset: 90px;
+        --center-scale: 0.81;
+        --nav-box-height: 125px;
+    }
+
+    .nav-dot[data-status="activated"] > .center-box > .nav-text {
+        transition-duration: 0ms;
+        font-size: 1.3rem;
+    }
+}
+

@@ -1,0 +1,26 @@
+:root {
+  --base-color1: #c2edce;
+  --base-color2: #6fb3b8;
+  --base-color3: #badfe7;
+  --highlight-color: #f6f6f2;
+  --background-color: #f2f5ff;
+  --spare-color: #388087;
+}
+
+*, :before, :after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: var(--background-color);
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+
+/*# sourceMappingURL=index.77a9bc14.css.map */
