@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "build": "parcel build ./src/index.html",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -16,11 +17,12 @@
   "bugs": {
     "url": "https://github.com/Thomas-Joseph-Ryan/Thomas-Joseph-Ryan.github.io/issues"
   },
-  "homepage": "https://github.com/Thomas-Joseph-Ryan/Thomas-Joseph-Ryan.github.io#readme",
+  "homepage": "https://github.com/Thomas-Joseph-Ryan/Thomas-Joseph-Ryan.github.io",
   "devDependencies": {
     "parcel": "^2.8.3"
   },
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "swup": "^3.0.4"
   }
 }
