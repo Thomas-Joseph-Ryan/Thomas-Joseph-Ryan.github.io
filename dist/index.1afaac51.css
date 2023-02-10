@@ -13,11 +13,15 @@ html.is-leaving .transition-swipe-up {
 
 .transition-swipe-right {
   transform-origin: 100%;
-  transition: all .8s;
 }
 
 html.is-animating .transition-swipe-right {
+  transition: all .8s;
   transform: translateX(-100%);
+}
+
+html.is-rendering .transition-swipe-right {
+  transition: all .8s;
 }
 
 /*# sourceMappingURL=index.1afaac51.css.map */

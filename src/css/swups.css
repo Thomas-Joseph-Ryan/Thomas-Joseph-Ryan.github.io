@@ -12,10 +12,14 @@ html.is-leaving .transition-swipe-up {
 }
 
 .transition-swipe-right {
-    transition: 0.8s;
     transform-origin: right;
 }
 
 html.is-animating .transition-swipe-right {
+    transition: 0.8s;
     transform: translateX(-100%);
+}
+
+html.is-rendering .transition-swipe-right {
+    transition: 0.8s;
 }
