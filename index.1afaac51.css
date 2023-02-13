@@ -20,8 +20,12 @@ html.is-animating .transition-swipe-right {
   transform: translateX(-100%);
 }
 
-html.is-rendering .transition-swipe-right {
+html.is-rendering .transition-swipe-right, .transition-enter-from-bottom {
   transition: all .8s;
+}
+
+html.is-animating .transition-enter-from-bottom {
+  transform: translateY(100%);
 }
 
 /*# sourceMappingURL=index.1afaac51.css.map */
