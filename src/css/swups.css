@@ -23,3 +23,11 @@ html.is-animating .transition-swipe-right {
 html.is-rendering .transition-swipe-right {
     transition: 0.8s;
 }
+
+.transition-enter-from-bottom {
+    transition: 0.8s;
+}
+
+html.is-animating .transition-enter-from-bottom {
+    transform: translateY(100%)
+}

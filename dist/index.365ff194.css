@@ -47,12 +47,15 @@ main {
   pointer-events: none;
   z-index: 3;
   background: linear-gradient(90deg, #0000 0%, #c2edce 15% 100%);
+  border-radius: 0% 3% 3% 0%;
   margin-left: -15%;
   padding-top: 5%;
 }
 
 .text-area {
   margin-left: 15%;
+  padding-left: 3%;
+  padding-right: 3%;
 }
 
 .about-heading, .about-intro {
@@ -69,14 +72,21 @@ main {
 }
 
 .back-slide {
-  background-color: var(--base-color1);
+  background-color: var(--background-color);
+  height: 100%;
+  width: 20px;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  transition: all .4s;
   display: flex;
 }
 
-.fa-circle-arrow-right {
+.back-slide:hover {
+  width: 60px;
+}
+
+.fa-chevrons-left {
   color: var(--spare-color);
   opacity: .6;
   padding: 0 4px 10px 0;

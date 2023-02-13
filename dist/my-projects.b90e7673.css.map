@@ -1,0 +1,1 @@
+{"mappings":"AAAA","sources":["src/css/projects.css"],"sourcesContent":[".grid-container {\r\n    background-color: var(--base-color3);\r\n    border-radius: 3% 3% 0% 0%;\r\n    width: 100%;\r\n    height: 97%;\r\n    align-self:flex-end\r\n}"],"names":[],"version":3,"file":"my-projects.b90e7673.css.map","sourceRoot":"/__parcel_source_root/"}
