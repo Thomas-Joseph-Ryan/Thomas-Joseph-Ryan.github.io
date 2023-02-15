@@ -1,11 +1,56 @@
+:root {
+    --card-width: 250px;
+    --card-border-radius: 16px;
+    --row-increment: 10px;
+    --card-small: 26;
+    --card-medium: 33;
+    --card-large: 45;
+}
+
 .back-row {
     
 }
 
 .grid-container {
-    background-color: var(--base-color3);
+    /* background-color: var(--base-color2); */
+    border-width: 10px;
+    border-color: var(--base-color2);
     border-radius: 3% 3% 0% 0%;
     width: 100%;
     height: 97%;
     align-self:flex-end
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card-width));
+    grid-auto-rows: var(--row-increment);
+    width: 100%;
+    height: 100%;
+    padding-top: 40px;
+}
+
+.project {
+    padding: 0px;
+    margin: 15px 10px;
+    background-color: var(--background-color);
+    border-radius: var(--card-border-radius);
+}
+
+.project-small {
+    grid-row-end: span var(--card-small);
+}
+
+.project-medium {
+    grid-row-end: span var(--card-medium);
+}
+
+.project-large {
+    grid-row-end: span var(--card-large);
+}
+
+.project-img {
+    max-width: 80%;
+    max-height: 80%;
+
 }

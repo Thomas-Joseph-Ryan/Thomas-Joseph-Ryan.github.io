@@ -1,8 +1,8 @@
 :root {
-  --radius: 30px;
-  --right-box-offset: 180px;
-  --center-scale: 1.51;
-  --nav-box-height: 125px;
+  --radius: 40px;
+  --right-box-offset: 200px;
+  --center-scale: 1.61;
+  --nav-box-height: 140px;
 }
 
 body {
@@ -42,12 +42,12 @@ body {
 
 .nav-dot.center {
   left: calc(50% - var(--radius));
-  background: var(--base-color3);
+  background: var(--base-color2);
 }
 
 .nav-dot.right {
   right: calc(40% + var(--radius));
-  background: var(--base-color2);
+  background: var(--base-color3);
 }
 
 .left-box {
@@ -185,8 +185,8 @@ body {
 .nav-dot[data-status="activated"] > .center-box > .nav-text {
   color: var(--spare-color);
   text-align: center;
-  font-family: Secular One, sans-serif;
-  font-size: 2rem;
+  font-family: Lora, serif;
+  font-size: 2.4rem;
   text-decoration: none;
   animation: .5s linear forwards text-fade-in;
 }
