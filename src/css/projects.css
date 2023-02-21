@@ -5,6 +5,7 @@
     --card-small: 26;
     --card-medium: 33;
     --card-large: 45;
+    --card-color: #A4D4DF;
 }
 
 .back-row {
@@ -33,7 +34,7 @@
 .project {
     padding: 0px;
     margin: 15px 10px;
-    background-color: var(--background-color);
+    background-color: var(--card-color);
     border-radius: var(--card-border-radius);
 }
 

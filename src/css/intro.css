@@ -309,3 +309,18 @@ body {
     }
 }
 
+@media only screen and (max-width: 361px){
+    :root {
+        --radius: 10px;
+
+        /* To create expanding nav boxes */
+        --right-box-offset: 60px;
+        --center-scale: 0.51;
+        --nav-box-height: 80px;
+    }
+
+    .nav-dot[data-status="activated"] > .center-box > .nav-text {
+        transition-duration: 0ms;
+        font-size: 0.8rem;
+    }
+}

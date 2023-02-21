@@ -5,6 +5,7 @@
   --card-small: 26;
   --card-medium: 33;
   --card-large: 45;
+  --card-color: #a4d4df;
 }
 
 .grid-container {
@@ -26,7 +27,7 @@
 }
 
 .project {
-  background-color: var(--background-color);
+  background-color: var(--card-color);
   border-radius: var(--card-border-radius);
   margin: 15px 10px;
   padding: 0;
