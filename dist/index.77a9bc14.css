@@ -1,10 +1,10 @@
 :root {
-  --base-color1: #70baff;
-  --base-color2: #a299ff;
-  --base-color3: #d5896f;
-  --highlight-color: #3d3d3d;
-  --background-color: #121212;
-  --spare-color: #121212;
+  --base-color1: #c2edce;
+  --base-color2: #6fb3b8;
+  --base-color3: #badfe7;
+  --highlight-color: #f6f6f2;
+  --background-color: #f2f5ff;
+  --spare-color: #388087;
 }
 
 *, :before, :after {

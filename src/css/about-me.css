@@ -48,11 +48,7 @@ main {
 .text-container {
     padding-top: 2%;
     margin-left: -15%;
-    /* background: rgb(0,0,0);
-    background: -moz-linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(194,237,206,1) 15%, rgba(194,237,206,1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(194,237,206,1) 15%, rgba(194,237,206,1) 100%);
-    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(194,237,206,1) 15%, rgba(194,237,206,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#c2edce",GradientType=1);  */
+  
     background: rgb(0,0,0);
     background: -moz-linear-gradient(90deg, rgba(0,0,0,0) 0%, var(--base-color1) 15%);
     background: -webkit-linear-gradient(90deg, rgba(0,0,0,0) 0%, var(--base-color1) 15%);
@@ -103,7 +99,7 @@ main {
 
 .fa-angles-left {
   font-size: 1rem;
-  color: var(--highlight-color);
+  color: var(--spare-color);
   opacity: 0.4;
   transform: rotate(180deg);
   transition: 0.4s;

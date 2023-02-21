@@ -94,7 +94,7 @@ main {
 }
 
 .fa-angles-left {
-  color: var(--highlight-color);
+  color: var(--spare-color);
   opacity: .4;
   font-size: 1rem;
   transition: all .4s;
