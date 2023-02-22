@@ -25,9 +25,14 @@ html.is-rendering .transition-swipe-right {
 }
 
 .transition-enter-from-bottom {
-    transition: 0.8s;
+    transform-origin: bottom;
 }
 
 html.is-animating .transition-enter-from-bottom {
+    transition: 0.8s;
     transform: translateY(100%)
+}
+
+html.is-rendering .transition-enter-from-bottom {
+    transition: 0.8s;
 }

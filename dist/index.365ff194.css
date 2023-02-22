@@ -12,7 +12,7 @@ main {
   -ms-overflow-style: none;
   scrollbar-width: none;
   background-color: var(--background-color);
-  max-width: 30%;
+  max-width: 40%;
   flex-wrap: wrap;
   padding: 0 1px;
   display: flex;
@@ -43,10 +43,13 @@ main {
 }
 
 .text-container {
-  filter: progid:DXImageTransform. Microsoft. gradient(startColorstr= "#000000", endColorstr= "#c2edce", GradientType= 1);
+  background: #000;
+  background: -moz-linear-gradient(90deg, #0000 0%, var(--base-color1) 15%);
+  background: -webkit-linear-gradient(90deg, #0000 0%, var(--base-color1) 15%);
+  background: linear-gradient(90deg, #0000 0%, var(--base-color1) 15%);
+  filter: progid:DXImageTransform. Microsoft. gradient(startColorstr= "#000000", endColorstr= "#7e777b", GradientType= 1);
   pointer-events: none;
   z-index: 3;
-  background: linear-gradient(90deg, #0000 0%, #c2edce 15% 100%);
   border-radius: 0% 3% 3% 0%;
   margin-left: -15%;
   padding-top: 2%;
@@ -54,12 +57,20 @@ main {
 
 .text-area {
   height: 100%;
-  flex-direction: column;
-  justify-content: space-around;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   margin-left: 15%;
   padding-left: 3%;
   padding-right: 3%;
-  display: flex;
+  overflow-y: auto;
+}
+
+.text-area::-webkit-scrollbar {
+  display: none;
+}
+
+.about-section {
+  padding-top: 40px;
 }
 
 .about-heading, .about-intro {
@@ -68,7 +79,7 @@ main {
 }
 
 .about-heading {
-  text-align: top;
+  text-align: center;
 }
 
 .about-intro {
@@ -122,6 +133,22 @@ main {
 
   .fa-circle-arrow-right {
     font-size: 1rem;
+  }
+
+  .text-container {
+    pointer-events: all;
+  }
+
+  .row {
+    max-width: 25%;
+  }
+
+  .back-slide {
+    width: 300px;
+  }
+
+  .back-slide:hover {
+    width: 350px;
   }
 }
 

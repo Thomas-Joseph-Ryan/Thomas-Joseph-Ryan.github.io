@@ -1,10 +1,10 @@
 :root {
-    --radius: 30px;
+    --radius: 40px;
 
     /* To create expanding nav boxes */
-    --right-box-offset: 180px;
-    --center-scale: 1.51;
-    --nav-box-height: 125px;
+    --right-box-offset: 200px;
+    --center-scale: 1.61;
+    --nav-box-height: 140px;
 }
 
 body {
@@ -47,12 +47,12 @@ body {
 
 .nav-dot.center {
     left: calc(50% - var(--radius));
-    background: var(--base-color3);
+    background: var(--base-color2);
 }
-  
+
 .nav-dot.right {
     right: calc(40% + var(--radius));
-    background: var(--base-color2);
+    background: var(--base-color3);
 }
   
 .left-box {
@@ -231,8 +231,8 @@ body {
 
 .nav-dot[data-status="activated"] > .center-box > .nav-text {
     color: var(--spare-color);
-    font-family: 'Secular One', sans-serif;
-    font-size: 2rem;
+    font-family: 'Lora', serif;
+    font-size: 2.4rem;
     text-align: center;
     text-decoration: none;
     -webkit-animation: text-fade-in 500ms linear 0ms 1 forwards;
@@ -309,3 +309,18 @@ body {
     }
 }
 
+@media only screen and (max-width: 361px){
+    :root {
+        --radius: 10px;
+
+        /* To create expanding nav boxes */
+        --right-box-offset: 60px;
+        --center-scale: 0.51;
+        --nav-box-height: 80px;
+    }
+
+    .nav-dot[data-status="activated"] > .center-box > .nav-text {
+        transition-duration: 0ms;
+        font-size: 0.8rem;
+    }
+}
