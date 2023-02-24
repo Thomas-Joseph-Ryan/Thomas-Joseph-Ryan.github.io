@@ -101,7 +101,7 @@ main {
   width: 160px;
 }
 
-.fa-angles-left {
+.about-arrow {
   color: var(--spare-color);
   opacity: .4;
   font-size: 1rem;
@@ -109,9 +109,9 @@ main {
   transform: rotate(180deg);
 }
 
-.back-slide:hover .fa-angles-left {
+.back-slide:hover .about-arrow {
   opacity: 1;
-  transform: scale(1.5)rotate(180deg);
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 1200px) {
@@ -119,20 +119,12 @@ main {
     max-width: 49%;
     flex: 49%;
   }
-
-  .fa-circle-arrow-right {
-    font-size: 2rem;
-  }
 }
 
 @media screen and (max-width: 730px) {
   .column {
     max-width: 100%;
     flex: 100%;
-  }
-
-  .fa-circle-arrow-right {
-    font-size: 1rem;
   }
 
   .text-container {

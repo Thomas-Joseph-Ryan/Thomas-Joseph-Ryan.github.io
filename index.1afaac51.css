@@ -12,7 +12,7 @@ html.is-leaving .transition-swipe-up {
 }
 
 .transition-swipe-right {
-  transform-origin: 100%;
+  transform-origin: 0;
 }
 
 html.is-animating .transition-swipe-right {
@@ -34,6 +34,19 @@ html.is-animating .transition-enter-from-bottom {
 }
 
 html.is-rendering .transition-enter-from-bottom {
+  transition: all .8s;
+}
+
+.transition-swipe-left {
+  transform-origin: 100%;
+}
+
+html.is-animating .transition-swipe-left {
+  transition: all .8s;
+  transform: translateX(100%);
+}
+
+html.is-rendering .transition-swipe-left {
   transition: all .8s;
 }
 
