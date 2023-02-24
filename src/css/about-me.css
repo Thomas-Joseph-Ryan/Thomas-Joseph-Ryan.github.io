@@ -107,7 +107,7 @@ main {
   width: 160px;
 }
 
-.fa-angles-left {
+.about-arrow {
   font-size: 1rem;
   color: var(--spare-color);
   opacity: 0.4;
@@ -115,9 +115,9 @@ main {
   transition: 0.4s;
 }
 
-.back-slide:hover .fa-angles-left {
+.back-slide:hover .about-arrow {
   opacity: 1;
-  transform: scale(1.5) rotate(180deg);
+  font-size: 2rem;
 }
 
 /* TODO: Finish the text for the about me page, then find the pixel width where scrolling is necessary and 
@@ -130,10 +130,6 @@ main {
       flex: 49%;
       max-width: 49%;
     }
-
-    .fa-circle-arrow-right {
-        font-size: 2rem;
-    }
   }
   
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
@@ -141,10 +137,6 @@ main {
     .column {
       flex: 100%;
       max-width: 100%;
-    }
-
-    .fa-circle-arrow-right {
-        font-size: 1rem;
     }
 
     .text-container {

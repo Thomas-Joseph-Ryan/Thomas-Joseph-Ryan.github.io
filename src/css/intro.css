@@ -11,6 +11,18 @@ body {
     overflow: hidden;
 }
 
+/* .name-wrapper {
+    margin: 0 auto;
+    padding-top: 25vh;
+}
+
+.name-wrapper > p {
+    color: var(--spare-color);
+    font-family: 'Lora', serif;
+    font-size: 2.4rem;
+    text-align: center;
+} */
+
 .nav-text {
     opacity: 0;
 }
