@@ -44,9 +44,9 @@ main {
 
 .text-container {
   background: #000;
-  background: -moz-linear-gradient(90deg, #0000 0%, var(--base-color1) 15%);
-  background: -webkit-linear-gradient(90deg, #0000 0%, var(--base-color1) 15%);
-  background: linear-gradient(90deg, #0000 0%, var(--base-color1) 15%);
+  background: -moz-linear-gradient(90deg, #0000 0%, var(--background-color) 15%);
+  background: -webkit-linear-gradient(90deg, #0000 0%, var(--background-color) 15%);
+  background: linear-gradient(90deg, #0000 0%, var(--background-color) 15%);
   filter: progid:DXImageTransform. Microsoft. gradient(startColorstr= "#000000", endColorstr= "#7e777b", GradientType= 1);
   pointer-events: none;
   z-index: 3;
