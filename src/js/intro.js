@@ -1,40 +1,41 @@
-const leftNav = document.getElementById("left-nav");
-const centerNav = document.getElementById("center-nav");
-const rightNav = document.getElementById("right-nav");
+class Navigation {
+    constructor() {
+        this.leftNav = document.getElementById("left-nav");
+        this.centerNav = document.getElementById("center-nav");
+        this.rightNav = document.getElementById("right-nav");
+        this.launching = true;
+        this.initialize();
+    }
 
-let launching = true;
+    initialize() {
+        window.addEventListener("load", () => {
+            console.log("first time on page, doing whole animation");
+            this.leftNav.dataset.status = "waiting";
+            this.centerNav.dataset.status = "waiting";
+            this.rightNav.dataset.status = "waiting";
+        });
 
+        this.rightNav.onanimationend = () => {
+            if (this.launching) {
+                this.leftNav.dataset.status = "activating";
+                this.centerNav.dataset.status = "activating";
+                this.rightNav.dataset.status = "activating";
+                console.log("status changed to activating");
+                this.launching = false;
+            }
+        };
 
-//Use local storage, on load clear it. After intro then do the thing
+        document.getElementById("right-nav-right-box").onanimationend = () => {
+            console.log("Intro animations completed");
+            this.leftNav.dataset.status = "activated";
+            this.centerNav.dataset.status = "activated";
+            this.rightNav.dataset.status = "activated";
+        };
 
-// This happens when you first open the page
-
-window.addEventListener("load", function () {
-    console.log("first time on page, doing whole animation");
-    leftNav.dataset.status = "waiting";
-    centerNav.dataset.status = "waiting";
-    rightNav.dataset.status = "waiting";
-});
-
-rightNav.onanimationend = function () {
-
-    if (launching) {
-        leftNav.dataset.status = "activating";
-        centerNav.dataset.status = "activating";
-        rightNav.dataset.status = "activating";
-        console.log("status changed to activating");
-        launching = false;
+        this.leftNav.onclick = () => {
+            console.log("left nav clicked");
+        };
     }
 }
 
-document.getElementById("right-nav-right-box").onanimationend = function () {
-    console.log("Intro animations completed");
-    leftNav.dataset.status = "activated";
-    centerNav.dataset.status = "activated";
-    rightNav.dataset.status = "activated";
-}
-
-leftNav.onclick = function () {
-    console.log("left nav clicked");
-}
-
+export default Navigation;

@@ -1,70 +1,74 @@
-// Get all the images with the class "photo"
-const row = document.querySelector('.row');
-const images = document.querySelectorAll('.photo');
-let focusedIndex = null;
+class RandomImageFocus {
+  constructor() {
+    this.row = document.querySelector('.row');
+    this.images = document.querySelectorAll('.photo');
+    this.focusedIndex = null;
+    this.intervalId = null;
+    this.isPaused = false;
 
-let intervalId;
-let isPaused = false;
+    this.focusRandomImage = this.focusRandomImage.bind(this);
+    this.toggleAnimation = this.toggleAnimation.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
 
-// function to select and focus a random image
-function focusRandomImage() {
-    // If there is a currently focused image, remove the "focused" class
-    if (focusedIndex !== null) {
-        images[focusedIndex].classList.remove('focused');
+    this.initialize();
+  }
+
+  focusRandomImage() {
+    if (this.focusedIndex !== null) {
+      this.images[this.focusedIndex].classList.remove('focused');
     }
-        
-    // Generate a random index between 0 and the length of the images array, excluding the previously focused index
+
     let index;
     do {
-    index = Math.floor(Math.random() * images.length);
-    } while (index === focusedIndex);
-    
-    // Apply the "focused" class to the image at the random index
-    images[index].classList.add('focused');
-    
-    // Set the focusedIndex to the new index
-    focusedIndex = index;
-}
+      index = Math.floor(Math.random() * this.images.length);
+    } while (index === this.focusedIndex);
 
-// event listener for the toggle button
-const toggleButton = document.querySelector('#toggle-button');
+    this.images[index].classList.add('focused');
 
-toggleButton.addEventListener('click', () => {
-  if (isPaused) {
-    // resume the function
-    intervalId = setInterval(() => {
-      focusRandomImage();
-    }, 3000);
-    toggleButton.textContent = 'Pause Animation';
-    isPaused = false;
-  } else {
-    // pause the function
-    clearInterval(intervalId);
-    if (focusedIndex !== null) {
-        images[focusedIndex].classList.remove('focused');
+    this.focusedIndex = index;
+  }
+
+  toggleAnimation() {
+    if (this.isPaused) {
+      this.intervalId = setInterval(this.focusRandomImage, 3000);
+      this.toggleButton.textContent = 'Pause Animation';
+      this.isPaused = false;
+    } else {
+      clearInterval(this.intervalId);
+
+      if (this.focusedIndex !== null) {
+        this.images[this.focusedIndex].classList.remove('focused');
+      }
+
+      this.toggleButton.textContent = 'Resume Animation';
+      this.isPaused = true;
     }
-    toggleButton.textContent = 'Resume Animation';
-    isPaused = true;
   }
-});
 
-// event listeners for the mouseenter and mouseleave events
-row.addEventListener('mouseenter', () => {
-  clearInterval(intervalId);
-  if (focusedIndex !== null) {
-    images[focusedIndex].classList.remove('focused');
+  handleMouseEnter() {
+    clearInterval(this.intervalId);
+
+    if (this.focusedIndex !== null) {
+      this.images[this.focusedIndex].classList.remove('focused');
+    }
+  }
+
+  handleMouseLeave() {
+    if (!this.isPaused) {
+      this.intervalId = setInterval(this.focusRandomImage, 3000);
+    }
+  }
+
+  initialize() {
+    this.toggleButton = document.querySelector('#toggle-button');
+    this.toggleButton.addEventListener('click', this.toggleAnimation);
+
+    this.row.addEventListener('mouseenter', this.handleMouseEnter);
+    this.row.addEventListener('mouseleave', this.handleMouseLeave);
+
+    this.intervalId = setInterval(this.focusRandomImage, 3000);
+  }
 }
-});
 
-row.addEventListener('mouseleave', () => {
-  if (!isPaused) {
-    intervalId = setInterval(() => {
-      focusRandomImage();
-    }, 3000);
-  }
-});
-
-// initial call to start the function
-intervalId = setInterval(() => {
-  focusRandomImage();
-}, 3000);
+export default RandomImageFocus;
