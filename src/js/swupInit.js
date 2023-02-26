@@ -7,15 +7,18 @@ const swup = new Swup({
     // plugins: [new SwupPreloadPlugin()]
 });
 
+let navigation;
+let randomImageFocus;
+
 function init() {
     if (document.querySelector('#nav-wrapper')) {
         console.log("On index page");
-        new Navigation();
+        navigation = new Navigation();
     }
 
     if (document.querySelector('#about-me-text')) {
         console.log("On about me page")
-        new RandomImageFocus();
+        randomImageFocus = new RandomImageFocus();
     }
 
     if (document.querySelector('#contact-page-area')) {
@@ -43,10 +46,12 @@ swup.on('contentReplaced', init);
 
 //Destroy old scripts runtime.
 function unload() {
-    if (document.querySelector('#carousel')) {
-        // carousel.destroy()
+    if (document.querySelector('#nav-wrapper')) {
+        navigation.destroy();
     }
-    // ...
+    if (document.querySelector('#about-me-text')) {
+        randomImageFocus.destroy();
+    }
 }
 
 swup.on('willReplaceContent', unload);

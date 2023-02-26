@@ -69,6 +69,13 @@ class RandomImageFocus {
 
     this.intervalId = setInterval(this.focusRandomImage, 3000);
   }
+
+  destroy() {
+    clearInterval(this.intervalId);
+    this.toggleButton.removeEventListener('click', this.toggleAnimation);
+    this.row.removeEventListener('mouseenter', this.pauseAnimation);
+    this.row.removeEventListener('mouseleave', this.resumeAnimation);
+  }
 }
 
 export default RandomImageFocus;
