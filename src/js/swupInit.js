@@ -50,7 +50,7 @@ function unload() {
         navigation.destroy();
     }
     if (document.querySelector('#about-me-text')) {
-        randomImageFocus.destroy();
+        // randomImageFocus.destroy();
     }
 }
 

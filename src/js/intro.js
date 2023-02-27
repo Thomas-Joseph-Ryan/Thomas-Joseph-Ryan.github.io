@@ -9,10 +9,11 @@ class Navigation {
     }
 
     initialize() {
-        const isFirstVisit = sessionStorage.getItem("isFirstVisit");
-        if (isFirstVisit === null) {
+        const activateAnimation = sessionStorage.getItem("activateAnimation");
+        console.log(window.location.pathname);
+        if (activateAnimation === null) {
             // If it's the first visit, run the animation and set the session storage variable
-            sessionStorage.setItem("isFirstVisit", "false");
+            sessionStorage.setItem("activateAnimation", "true");
 
             window.addEventListener("load", () => {
                 console.log("first time on page, doing whole animation");
@@ -40,7 +41,9 @@ class Navigation {
 
             // add an event listener to the beforeunload event to remove the sessionStorage item on page unload
             window.addEventListener("beforeunload", () => {
-                sessionStorage.removeItem("isFirstVisit");
+                if (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html')) {
+                    sessionStorage.removeItem("activateAnimation");
+                }
             });
         } else {
             // If it's not the first visit, skip the animation and set the dataset status to "activated"

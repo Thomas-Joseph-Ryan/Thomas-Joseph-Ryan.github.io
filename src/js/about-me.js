@@ -61,8 +61,8 @@ class RandomImageFocus {
   }
 
   initialize() {
-    this.toggleButton = document.querySelector('#toggle-button');
-    this.toggleButton.addEventListener('click', this.toggleAnimation);
+    // this.toggleButton = document.querySelector('#toggle-button');
+    // this.toggleButton.addEventListener('click', this.toggleAnimation);
 
     this.row.addEventListener('mouseenter', this.handleMouseEnter);
     this.row.addEventListener('mouseleave', this.handleMouseLeave);
@@ -72,7 +72,7 @@ class RandomImageFocus {
 
   destroy() {
     clearInterval(this.intervalId);
-    this.toggleButton.removeEventListener('click', this.toggleAnimation);
+    // this.toggleButton.removeEventListener('click', this.toggleAnimation);
     this.row.removeEventListener('mouseenter', this.pauseAnimation);
     this.row.removeEventListener('mouseleave', this.resumeAnimation);
   }

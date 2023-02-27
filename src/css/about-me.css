@@ -18,12 +18,15 @@ main {
   scrollbar-width: none;  /* Firefox */
   background-color: var(--background-color);
   max-width: 30%;
-  
+  position: relative;
 }
 
 .row::-webkit-scrollbar {
   display: none;
 }
+
+
+
 
 /* Create four equal columns that sits next to each other */
 .column {
@@ -55,51 +58,69 @@ main {
   opacity: 1 !important;
 }
 
-.text-container {
-  padding-top: 2%;
-  margin-left: -15%;
-  background: rgb(0,0,0);
-  background: -moz-linear-gradient(90deg, rgba(0,0,0,0) 0%, var(--background-color) 15%);
-  background: -webkit-linear-gradient(90deg, rgba(0,0,0,0) 0%, var(--background-color) 15%);
-  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, var(--background-color) 15%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#7e777b",GradientType=1); 
-  border-radius: 0% 3% 3% 0%;
-  pointer-events: none;
-  z-index: 3;
-}
-
 .text-area {
   height: 100%;
-  margin-left: 15%;
-  padding-left: 3%;
-  padding-right: 3%;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-around; */
   overflow-y: auto;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
+  display: flex;
+  flex-direction: column;
+  justify-content:left;
+}
+
+.text-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(30% + 3px); /* adjust as needed */
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(255,255,255,0) 80%, var(--background-color));
+  z-index: 1;
+  pointer-events: none;
+  overflow-y: hidden;
 }
 
 .text-area::-webkit-scrollbar {
   display: none;
 }
 
+
 .about-section {
   padding-top: 40px;
 }
 
-.about-heading, .about-intro {
-  font-family: 'Ubuntu', sans-serif;
+.about-heading, .about-text {
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-family: 'Lora', serif;
   color: var(--spare-color);
 }
 
 .about-heading {
-  text-align: center;
+  text-align: left;
+  font-size: 1.6rem;
+  text-decoration: underline;
+  text-decoration-color: var(--base-color1);
+  text-decoration-thickness: 2px;
+  /* color: var(--base-color1); */
 }
 
-.about-intro {
-  margin-top: 10px;
+.about-text {
+  font-size: 1.1rem;
+
+}
+
+.highlight {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    var(--base-color1) 50%
+  );
+}
+
+.paragraph {
+  display: block;
+  padding-top: 10px;
 }
 
 #toggle-button {
@@ -185,6 +206,10 @@ main {
 
     .row {
       max-width: 25%;
+    }
+
+    .text-area::before {
+      width: calc(25% + 3px);
     }
 
     .back-slide {
