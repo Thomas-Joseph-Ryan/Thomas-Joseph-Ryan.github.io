@@ -151,13 +151,13 @@ main {
   font-size: 2rem;
   color: var(--spare-color);
   opacity: 0.4;
-  transform: rotate(180deg);
+  transform: scale(-1);
   transition: 0.4s;
 }
 
 .back-slide:hover .about-arrow {
   opacity: 1;
-  font-size: 3rem;
+  transform: scale(-1.5);
 }
 
 /* TODO: Finish the text for the about me page, then find the pixel width where scrolling is necessary and 
