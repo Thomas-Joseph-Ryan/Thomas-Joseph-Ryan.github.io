@@ -560,11 +560,41 @@ function hmrAccept(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _swup = require("swup");
 var _swupDefault = parcelHelpers.interopDefault(_swup);
+var _intro = require("./intro");
+var _introDefault = parcelHelpers.interopDefault(_intro);
+var _aboutMe = require("./about-me");
+var _aboutMeDefault = parcelHelpers.interopDefault(_aboutMe);
 // import SwupPreloadPlugin from '@swup/preload-plugin';
 const swup = new (0, _swupDefault.default)({
 });
+let navigation;
+let randomImageFocus;
+function init() {
+    if (document.querySelector("#nav-wrapper")) {
+        console.log("On index page");
+        navigation = new (0, _introDefault.default)();
+    }
+    if (document.querySelector("#about-me-text")) {
+        console.log("On about me page");
+        randomImageFocus = new (0, _aboutMeDefault.default)();
+    }
+    if (document.querySelector("#contact-page-area")) // ...
+    console.log("On contact page");
+    if (document.querySelector("#project-container")) console.log("On projects page");
+}
+// run once when page loads
+if (document.readyState === "complete") init();
+else document.addEventListener("DOMContentLoaded", ()=>init());
+// run after every additional navigation by swup
+swup.on("contentReplaced", init);
+//Destroy old scripts runtime.
+function unload() {
+    if (document.querySelector("#nav-wrapper")) navigation.destroy();
+    document.querySelector("#about-me-text");
+}
+swup.on("willReplaceContent", unload);
 
-},{"swup":"5QjrV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5QjrV":[function(require,module,exports) {
+},{"swup":"5QjrV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./intro":"4V73i","./about-me":"hYjW6"}],"5QjrV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Location", ()=>p);
@@ -1120,6 +1150,130 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["5nrFl","gMIi3"], "gMIi3", "parcelRequire1b85")
+},{}],"4V73i":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class Navigation {
+    constructor(){
+        this.leftNav = document.getElementById("left-nav");
+        this.centerNav = document.getElementById("center-nav");
+        this.rightNav = document.getElementById("right-nav");
+        this.launching = true;
+        this.initialize();
+    }
+    initialize() {
+        const activateAnimation = sessionStorage.getItem("activateAnimation");
+        console.log(window.location.pathname);
+        if (activateAnimation === null) {
+            // If it's the first visit, run the animation and set the session storage variable
+            sessionStorage.setItem("activateAnimation", "true");
+            window.addEventListener("load", ()=>{
+                console.log("first time on page, doing whole animation");
+                this.leftNav.dataset.status = "waiting";
+                this.centerNav.dataset.status = "waiting";
+                this.rightNav.dataset.status = "waiting";
+            });
+            this.rightNav.onanimationend = ()=>{
+                if (this.launching) {
+                    this.leftNav.dataset.status = "activating";
+                    this.centerNav.dataset.status = "activating";
+                    this.rightNav.dataset.status = "activating";
+                    console.log("status changed to activating");
+                    this.launching = false;
+                }
+            };
+            document.getElementById("right-nav-right-box").onanimationend = ()=>{
+                console.log("Intro animations completed");
+                this.leftNav.dataset.status = "activated";
+                this.centerNav.dataset.status = "activated";
+                this.rightNav.dataset.status = "activated";
+            };
+            // add an event listener to the beforeunload event to remove the sessionStorage item on page unload
+            window.addEventListener("beforeunload", ()=>{
+                if (window.location.pathname.endsWith("/") || window.location.pathname.endsWith("/index.html")) sessionStorage.removeItem("activateAnimation");
+            });
+        } else {
+            // If it's not the first visit, skip the animation and set the dataset status to "activated"
+            this.leftNav.dataset.status = "activated";
+            this.centerNav.dataset.status = "activated";
+            this.rightNav.dataset.status = "activated";
+        }
+    }
+    destroy() {
+        window.removeEventListener("load", ()=>{
+            console.log("first time on page, doing whole animation");
+            this.leftNav.dataset.status = "waiting";
+            this.centerNav.dataset.status = "waiting";
+            this.rightNav.dataset.status = "waiting";
+        });
+        this.rightNav.onanimationend = null;
+        document.getElementById("right-nav-right-box").onanimationend = null;
+        this.leftNav.dataset.status = "";
+        this.centerNav.dataset.status = "";
+        this.rightNav.dataset.status = "";
+    }
+}
+exports.default = Navigation;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hYjW6":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class RandomImageFocus {
+    constructor(){
+        this.row = document.querySelector(".row");
+        this.images = document.querySelectorAll(".photo");
+        this.focusedIndex = null;
+        this.intervalId = null;
+        this.isPaused = false;
+        this.focusRandomImage = this.focusRandomImage.bind(this);
+        this.toggleAnimation = this.toggleAnimation.bind(this);
+        this.handleMouseEnter = this.handleMouseEnter.bind(this);
+        this.handleMouseLeave = this.handleMouseLeave.bind(this);
+        this.initialize();
+    }
+    focusRandomImage() {
+        if (this.focusedIndex !== null) this.images[this.focusedIndex].classList.remove("focused");
+        let index;
+        do index = Math.floor(Math.random() * this.images.length);
+        while (index === this.focusedIndex);
+        this.images[index].classList.add("focused");
+        this.focusedIndex = index;
+    }
+    toggleAnimation() {
+        if (this.isPaused) {
+            this.intervalId = setInterval(this.focusRandomImage, 3000);
+            this.toggleButton.textContent = "Pause Animation";
+            this.isPaused = false;
+        } else {
+            clearInterval(this.intervalId);
+            if (this.focusedIndex !== null) this.images[this.focusedIndex].classList.remove("focused");
+            this.toggleButton.textContent = "Resume Animation";
+            this.isPaused = true;
+        }
+    }
+    handleMouseEnter() {
+        clearInterval(this.intervalId);
+        if (this.focusedIndex !== null) this.images[this.focusedIndex].classList.remove("focused");
+    }
+    handleMouseLeave() {
+        if (!this.isPaused) this.intervalId = setInterval(this.focusRandomImage, 3000);
+    }
+    initialize() {
+        // this.toggleButton = document.querySelector('#toggle-button');
+        // this.toggleButton.addEventListener('click', this.toggleAnimation);
+        this.row.addEventListener("mouseenter", this.handleMouseEnter);
+        this.row.addEventListener("mouseleave", this.handleMouseLeave);
+        this.intervalId = setInterval(this.focusRandomImage, 3000);
+    }
+    destroy() {
+        clearInterval(this.intervalId);
+        // this.toggleButton.removeEventListener('click', this.toggleAnimation);
+        this.row.removeEventListener("mouseenter", this.pauseAnimation);
+        this.row.removeEventListener("mouseleave", this.resumeAnimation);
+    }
+}
+exports.default = RandomImageFocus;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["5nrFl","gMIi3"], "gMIi3", "parcelRequire1b85")
 
 //# sourceMappingURL=index.63091604.js.map
