@@ -52,15 +52,6 @@ main {
   opacity: 1 !important;
 }
 
-#toggle-button {
-  width: 100px;
-  height: 100px;
-  background: var(--base-color1);
-  z-index: 5;
-  position: absolute;
-  left: 30%;
-}
-
 .text-container {
   background: #000;
   background: -moz-linear-gradient(90deg, #0000 0%, var(--background-color) 15%);
@@ -105,10 +96,40 @@ main {
   margin-top: 10px;
 }
 
+#toggle-button {
+  width: 60px;
+  height: 60px;
+  background: var(--base-color1);
+  opacity: .8;
+  z-index: 5;
+  cursor: pointer;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  transition: all .3s;
+  display: flex;
+  left: 30%;
+}
+
+#toggle-button:hover {
+  opacity: 1;
+}
+
+.about-animation-play {
+  font-size: 4rem;
+  display: none !important;
+}
+
+.about-animation-pause {
+  color: var(--background-color);
+  font-size: 2rem;
+}
+
 .back-slide {
   background-color: var(--background-color);
   height: 100%;
-  width: 80px;
+  width: 160px;
   justify-content: center;
   align-items: center;
   text-decoration: none;
@@ -117,20 +138,20 @@ main {
 }
 
 .back-slide:hover {
-  width: 160px;
+  width: 200px;
 }
 
 .about-arrow {
   color: var(--spare-color);
   opacity: .4;
-  font-size: 1rem;
+  font-size: 2rem;
   transition: all .4s;
   transform: rotate(180deg);
 }
 
 .back-slide:hover .about-arrow {
   opacity: 1;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 @media screen and (max-width: 1200px) {
