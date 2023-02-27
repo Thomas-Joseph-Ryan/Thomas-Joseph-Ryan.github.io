@@ -17,13 +17,16 @@ main {
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
   background-color: var(--background-color);
-  max-width: 40%;
-  
+  max-width: 30%;
+  position: relative;
 }
 
 .row::-webkit-scrollbar {
   display: none;
 }
+
+
+
 
 /* Create four equal columns that sits next to each other */
 .column {
@@ -36,6 +39,8 @@ main {
   margin-top: 0.5px;
   vertical-align: middle;
   width: 100%;
+  opacity: 0.2;
+  transition: 1s;
 }
 
 .column img:hover {
@@ -43,53 +48,109 @@ main {
   transform: scale(1.3);
   z-index: 2;
   border-radius: 5%;
+  opacity: 1;
 }
 
-.text-container {
-  padding-top: 2%;
-  margin-left: -15%;
-  background: rgb(0,0,0);
-  background: -moz-linear-gradient(90deg, rgba(0,0,0,0) 0%, var(--base-color1) 15%);
-  background: -webkit-linear-gradient(90deg, rgba(0,0,0,0) 0%, var(--base-color1) 15%);
-  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, var(--base-color1) 15%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#7e777b",GradientType=1); 
-  border-radius: 0% 3% 3% 0%;
-  pointer-events: none;
-  z-index: 3;
+.focused {
+  transform: scale(1.3);
+  z-index: 2;
+  border-radius: 5%;
+  opacity: 1 !important;
 }
 
 .text-area {
   height: 100%;
-  margin-left: 15%;
-  padding-left: 3%;
-  padding-right: 3%;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-around; */
   overflow-y: auto;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
+  display: flex;
+  flex-direction: column;
+  justify-content:left;
+}
+
+.text-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(30% + 3px); /* adjust as needed */
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(255,255,255,0) 80%, var(--background-color));
+  z-index: 1;
+  pointer-events: none;
+  overflow-y: hidden;
 }
 
 .text-area::-webkit-scrollbar {
   display: none;
 }
 
+
 .about-section {
   padding-top: 40px;
 }
 
-.about-heading, .about-intro {
-  font-family: 'Ubuntu', sans-serif;
+.about-heading, .about-text {
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-family: 'Lora', serif;
   color: var(--spare-color);
 }
 
 .about-heading {
-  text-align: center;
+  text-align: left;
+  font-size: 1.6rem;
+  text-decoration: underline;
+  text-decoration-color: var(--base-color1);
+  text-decoration-thickness: 2px;
+  /* color: var(--base-color1); */
 }
 
-.about-intro {
-  margin-top: 10px;
+.about-text {
+  font-size: 1.1rem;
+
+}
+
+.highlight {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    var(--base-color1) 50%
+  );
+}
+
+.paragraph {
+  display: block;
+  padding-top: 10px;
+}
+
+#toggle-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  left: 30%;
+  background: var(--base-color1);
+  opacity: 0.8;
+  z-index: 5;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+#toggle-button:hover {
+  opacity: 1;
+}
+
+.about-animation-play {
+  display: none !important;
+  font-size: 4rem;
+}
+
+.about-animation-pause {
+  font-size: 2rem;
+  color: var(--background-color);
 }
 
 .back-slide {
@@ -99,25 +160,25 @@ main {
     justify-content: center;
     text-decoration: none;
     height: 100%;
-    width: 80px;
+    width: 160px;
     transition: 0.4s;
 }
 
 .back-slide:hover {
-  width: 160px;
+  width: 200px;
 }
 
 .about-arrow {
-  font-size: 1rem;
+  font-size: 2rem;
   color: var(--spare-color);
   opacity: 0.4;
-  transform: rotate(180deg);
+  transform: scale(-1);
   transition: 0.4s;
 }
 
 .back-slide:hover .about-arrow {
   opacity: 1;
-  font-size: 2rem;
+  transform: scale(-1.5);
 }
 
 /* TODO: Finish the text for the about me page, then find the pixel width where scrolling is necessary and 
@@ -145,6 +206,10 @@ main {
 
     .row {
       max-width: 25%;
+    }
+
+    .text-area::before {
+      width: calc(25% + 3px);
     }
 
     .back-slide {

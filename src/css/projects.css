@@ -5,7 +5,6 @@
     --card-small: 26;
     --card-medium: 33;
     --card-large: 45;
-    --card-color: #A4D4DF;
 }
 
 .project-main {
@@ -28,13 +27,11 @@
 }
 
 .grid-container {
-    background-color: var(--base-color2);
-    border-width: 10px;
-    /* border-color: var(--base-color2); */
-    border-radius: 3% 3% 0% 0%;
     width: 100%;
     height: 100%;
-    align-self:flex-end
+    align-self:flex-end;
+    display: flex;
+    justify-content: center;
 }
 
 .grid {
@@ -43,14 +40,18 @@
     grid-auto-rows: var(--row-increment);
     width: 100%;
     height: 100%;
-    padding-top: 40px;
+    padding: 10px 20px 0px 20px;
+    overflow-y: auto;
+    justify-content: center;
 }
 
 .project {
     padding: 0px;
     margin: 15px 10px;
-    background-color: var(--card-color);
+    background-color: var(--base-color2);
     border-radius: var(--card-border-radius);
+    display: flex;
+    flex-direction: column;
 }
 
 .project-small {
@@ -68,5 +69,6 @@
 .project-img {
     max-width: 80%;
     max-height: 80%;
-
+    align-self: center;
+    padding-top: 5px;
 }
