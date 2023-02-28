@@ -118,8 +118,8 @@ main {
 
 .highlight {
   background: linear-gradient(to bottom,
-      transparent 50%,
-      var(--base-color1) 50%);
+      transparent 40%,
+      var(--base-color1) 100%);
 }
 
 .paragraph {

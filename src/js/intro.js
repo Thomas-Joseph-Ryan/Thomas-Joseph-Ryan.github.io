@@ -61,6 +61,12 @@ class Navigation {
             this.rightNav.dataset.status = "waiting";
         });
 
+        window.removeEventListener("beforeunload", () => {
+            if (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html')) {
+                sessionStorage.removeItem("activateAnimation");
+            }
+        });
+
         this.rightNav.onanimationend = null;
         document.getElementById("right-nav-right-box").onanimationend = null;
 
