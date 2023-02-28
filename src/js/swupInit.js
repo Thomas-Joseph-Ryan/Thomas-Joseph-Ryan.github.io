@@ -1,6 +1,7 @@
 import Swup from 'swup';
 import Navigation from "./intro";
 import RandomImageFocus from './about-me';
+import BorderGenerator from './projects';
 // import SwupPreloadPlugin from '@swup/preload-plugin';
 
 const swup = new Swup({

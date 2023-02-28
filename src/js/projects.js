@@ -1,6 +1,6 @@
 class BorderGenerator {
     constructor() {
-      this.cards = document.querySelectorAll(`.card`);
+      this.cards = document.querySelectorAll(`.project`);
       this.generateTails();
       this.setRandomColors();
       setInterval(() => {
