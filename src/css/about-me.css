@@ -171,9 +171,10 @@ main {
 .about-arrow {
   font-size: 2rem;
   color: var(--spare-color);
-  opacity: 0.4;
+  opacity: 0.6;
   transform: scale(-1);
   transition: 0.4s;
+  padding-left: 10px;  /* Needs to be reversed because of flipping it over its y-axis */
 }
 
 .back-slide:hover .about-arrow {

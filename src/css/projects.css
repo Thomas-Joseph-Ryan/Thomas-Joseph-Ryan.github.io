@@ -48,8 +48,9 @@
 .project {
     padding: 0px;
     margin: 15px 10px;
-    background-color: var(--base-color2);
+    /* background-color: var(--base-color2); */
     border-radius: var(--card-border-radius);
+    box-shadow: inset 0 0 0 var(--border) grey;
     display: flex;
     flex-direction: column;
 }
@@ -71,4 +72,18 @@
     max-height: 80%;
     align-self: center;
     padding-top: 5px;
+}
+
+.project-heading, .project-description {
+    color: var(--spare-color);
+    font-family: 'Lora', serif;
+}
+
+.project-heading {
+    text-align: center;
+}
+
+.project-description {
+    padding-left: 3%;
+    padding-right: 3%;
 }
