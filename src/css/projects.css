@@ -1,162 +1,176 @@
 :root {
-  --card-width: 250px;
-  --card-border-radius: 16px;
-  --row-increment: 10px;
-  --card-small: 26;
-  --card-medium: 33;
-  --card-large: 45;
+    --card-width: 250px;
+    --card-border-radius: 16px;
+    --row-increment: 10px;
+    --card-small: 30;
+    --card-medium: 38;
+    --card-large: 45;
 }
 
 .project-main {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .back-row {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .projects-arrow {
-  color: var(--spare-color);
-  opacity: 0.4;
-  transform: rotate(90deg);
+    color: var(--spare-color);
+    opacity: 0.4;
+    transform: rotate(90deg);
 }
 
 .grid-container {
-  width: 100%;
-  height: 100%;
-  align-self:flex-end;
-  display: flex;
-  justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, var(--card-width));
-  grid-auto-rows: var(--row-increment);
-  width: 100%;
-  height: 100%;
-  padding: 10px 20px 0px 20px;
-  overflow-y: auto;
-  justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card-width));
+    grid-auto-rows: var(--row-increment);
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px 0px 20px;
+    overflow-y: auto;
+    justify-content: center;
 }
 
 .project {
-  padding: 0px;
-  margin: 15px 10px;
-  /* background-color: var(--base-color2); */
-  border-radius: var(--card-border-radius);
-  box-shadow: inset 0 0 0 var(--border) grey;
-  display: flex;
-  flex-direction: column;
+    --inline: 8px;
+    --block: 0;
+    --duration: 150ms;
+    --padding: 3px;
+    --border: 4px;
+    padding: var(--padding);
+    margin: 15px 10px;
+    box-shadow: inset 0 0 0 var(--border) var(--spare-color);
+    /* background-color: var(--base-color2); */
+    border-radius: calc(var(--card-border-radius) + var(--padding));
+    overflow: hidden;
+    cursor: pointer;
+    display: grid;
 }
 
 .project-small {
-  grid-row-end: span var(--card-small);
+    grid-row-end: span var(--card-small);
 }
 
 .project-medium {
-  grid-row-end: span var(--card-medium);
+    grid-row-end: span var(--card-medium);
 }
 
 .project-large {
-  grid-row-end: span var(--card-large);
+    grid-row-end: span var(--card-large);
 }
 
 .inner {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--card-border-radius);
+    z-index: 2;
+    background: var(--background-color);
 }
 
 .project-img {
-  max-width: 80%;
-  max-height: 80%;
-  align-self: center;
-  padding-top: 5px;
+    max-width: 80%;
+    max-height: 80%;
+    align-self: center;
+    padding-top: 5px;
 }
 
-.project-heading, .project-description {
-  color: var(--spare-color);
-  font-family: 'Lora', serif;
+.project-heading,
+.project-description {
+    color: var(--spare-color);
+    font-family: 'Lora', serif;
 }
 
 .project-heading {
-  text-align: center;
+    text-align: center;
 }
 
 .project-description {
-  padding-left: 3%;
-  padding-right: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 .tail {
-  transition: all var(--duration);
-  width: var(--inline);
-  height: var(--block);
-  background: var(--color1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
+    transition: all var(--duration);
+    width: var(--inline);
+    height: var(--block);
+    background: var(--base-color2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
 }
 
 .tail.top {
-  background-image: linear-gradient(to right, var(--color1), var(--color2));
-  height: var(--inline);
-  width: var(--block);
-  transition-delay: calc(var(--duration) * 2);
+    background-image: var(--base-color2);
+    height: var(--inline);
+    width: var(--block);
+    transition-delay: calc(var(--duration) * 2);
 }
 
 .tail.right {
-  right: 0;
-  left: unset;
-  background: var(--color2);
-  transition-delay: var(--duration);
+    right: 0;
+    left: unset;
+    background: var(--base-color2);
+    transition-delay: var(--duration);
 }
 
 .tail.bottom {
-  height: var(--inline);
-  width: var(--block);
-  bottom: 0;
-  right: 0;
-  left: unset;
-  top: unset;
-  background-image: linear-gradient(to right, var(--color1), var(--color2));
-  transition-delay: 0ms;
+    height: var(--inline);
+    width: var(--block);
+    bottom: 0;
+    right: 0;
+    left: unset;
+    top: unset;
+    background-image: var(--base-color2);
+    transition-delay: 0ms;
 }
 
 .tail.left {
-  bottom: 0;
-  top: unset;
-  transition-delay: calc(var(--duration) * 3);
+    bottom: 0;
+    top: unset;
+    transition-delay: calc(var(--duration) * 3);
 }
 
 .snake:where(.start, :hover) .tail.top {
-  transition-delay: var(--duration);
+    transition-delay: var(--duration);
 }
+
 .snake:where(.start, :hover) .tail.right {
-  transition-delay: calc(var(--duration) * 2);
+    transition-delay: calc(var(--duration) * 2);
 }
+
 .snake:where(.start, :hover) .tail.bottom {
-  transition-delay: calc(var(--duration) * 3);
+    transition-delay: calc(var(--duration) * 3);
 }
+
 .snake:where(.start, :hover) .tail.left {
-  transition-delay: 0ms;
+    transition-delay: 0ms;
 }
 
 .snake {
-  position: relative;
+    position: relative;
 }
 
 .snake.start .tail {
-  --block: 0;
+    --block: 0;
 }
+
 .snake:hover .tail {
-  --block: 100%;
+    --block: 100%;
 }
