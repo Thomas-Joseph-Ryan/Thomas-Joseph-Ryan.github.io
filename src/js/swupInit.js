@@ -28,6 +28,7 @@ function init() {
 
     if (document.querySelector("#project-container")) {
         console.log("On projects page")
+        new BorderGenerator();
     }
 }
 
