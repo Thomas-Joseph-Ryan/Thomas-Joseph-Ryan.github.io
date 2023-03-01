@@ -78,3 +78,11 @@
 .icon-box:hover .social-icon {
     font-size: 10rem;
 }
+
+.icon-box:active .social-icon {
+    font-size: 9rem;
+}
+
+#email {
+    cursor: pointer;
+}
