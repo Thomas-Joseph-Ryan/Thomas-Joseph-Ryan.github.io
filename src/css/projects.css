@@ -10,6 +10,7 @@
 .project-main {
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
 }
 
 .back-row {
@@ -18,6 +19,7 @@
     display: flex;
     justify-content: center;
     text-decoration: none;
+    
 }
 
 .projects-arrow {
@@ -33,22 +35,91 @@
   transform: rotate(90deg) scale(1.5);
 }
 
+.project-page-content {
+    overflow-y: auto;
+}
+
+/* Text Area */
+
+.projects-text-area {
+    /* padding-left: 100px; */
+    margin: 0 auto;
+    padding-bottom: 20px;
+    position: relative;
+    color: var(--spare-color);
+    width: 70%;
+    padding-top: 30px;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style-position: inside;
+}
+
+.skills-explaination {
+    font-size: 1.3rem;
+    padding-top: 40px;
+    text-align: center;
+    padding-bottom: 40px;
+    font-style: italic;
+
+}
+
+.skills-highlight {
+    background: linear-gradient(to bottom,
+        transparent 40%,
+        var(--base-color2) 100%);
+}
+
+.work-list {
+    list-style-position: inside;
+}
+
+.projects-title {
+    font-size: 1.4rem;
+    text-decoration: underline;
+    text-decoration-color: var(--base-color2);
+    text-decoration-thickness: 2px;
+}
+
+.list-title {
+    font-size: 1.4rem !important;
+}
+
+.skill-item {
+    padding-top: 7px;
+    padding-left: 10px;
+}
+
+.projects-text-area::after {
+    content: ""; /* add a pseudo-element to the div */
+    position: absolute; /* position the pseudo-element absolutely within the div */
+    bottom: 0; /* position the pseudo-element at the bottom of the div */
+    left: 20%; /* move the pseudo-element to the right by 20% (80% - 60%) */
+    width: 60%; /* set the width of the border to 60% */
+    height: 3px; /* set the height of the border */
+    background-color: var(--base-color2); /* set the color of the border */
+  }
+
+
 .grid-container {
     width: 100%;
     height: 100%;
     align-self: flex-end;
     display: flex;
     justify-content: center;
+    /* overflow-y: auto; */
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, var(--card-width));
     grid-auto-rows: var(--row-increment);
-    width: 100%;
+    width: 70%;
     height: 100%;
-    padding: 10px 20px 0px 20px;
-    overflow-y: auto;
+    margin: 0 auto;
+    overflow-y: unset;
     justify-content: center;
     margin-bottom: 20px;
 }
@@ -185,3 +256,5 @@
 .snake:hover .tail {
     --block: 100%;
 }
+
+/* Make blue gradient up after snake trail finishes */
