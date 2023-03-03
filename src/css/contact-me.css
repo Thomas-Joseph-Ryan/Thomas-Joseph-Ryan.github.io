@@ -61,8 +61,15 @@
 }
 
 @keyframes fill {
-    from { width: 0; }
-    to { width: 100%; height: 100%; top: 0;}
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
 }
 
 .social-icon {
@@ -71,7 +78,7 @@
     transition: 300ms;
 }
 
-.content-area > a {
+.content-area>a {
     text-decoration: none;
 }
 
@@ -85,4 +92,19 @@
 
 #email {
     cursor: pointer;
+}
+
+#email-icon {
+    transition: 400ms;
+}
+
+#email-message {
+    position: absolute;
+    top: 30%;
+    text-align: center;
+    font-size: 1.5rem;
+    left: 1%;
+    color: var(--spare-color);
+    opacity: 0;
+    transition: 400ms;
 }
