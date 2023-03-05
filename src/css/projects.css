@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center;
     text-decoration: none;
-    
+
 }
 
 .projects-arrow {
@@ -32,7 +32,7 @@
 }
 
 .back-row:hover .projects-arrow {
-  transform: rotate(90deg) scale(1.5);
+    transform: rotate(90deg) scale(1.5);
 }
 
 .project-page-content {
@@ -68,12 +68,96 @@
 
 .skills-highlight {
     background: linear-gradient(to bottom,
-        transparent 40%,
-        var(--base-color2) 100%);
+            transparent 40%,
+            var(--base-color2) 100%);
 }
 
 .work-list {
-    list-style-position: inside;
+    list-style: none;
+    padding-top: 20px;
+}
+
+.work {
+    padding-bottom: 20px;
+}
+
+.collapsible-toggle {
+    position: relative;
+    cursor: pointer;
+    transform: translate(0, 0);
+    transition: transform 0.3s ease-in-out;
+    background: var(--background-color);
+}
+
+/* .collapsible-toggle:hover {
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    transform: translate(1px, -1px); */
+/* } */
+
+.list-down-arrow {
+    position: absolute;
+    right: 5%;
+    top: 45%;
+    font-size: 1.3rem;
+    opacity: 0.6;
+    transition: 0.2s;
+}
+
+.collapsible-toggle:hover .list-down-arrow{
+    opacity: 1;
+}
+
+.list-arrow-rotate {
+    transform: rotate(180deg);
+}
+
+.title-down-arrow {
+    right: unset;
+    left: 22%;
+    top: 20% !important;
+}
+
+.work-title-area {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transform-origin: bottom;
+    transition: max-height 0.5s ease-out;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.open {
+    max-height: 1000px;
+}
+
+.work {
+    padding-left: 25px;
+}
+
+.role {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-style: normal;
+    padding-bottom: 4px;
+}
+
+.work-name {
+    display: block;
+    font-size: 1.1rem;
+    font-style: normal;
+    padding-bottom: 4px;
+}
+
+.date {
+    display: block;
+    padding-bottom: 4px;
 }
 
 .projects-title {
@@ -93,14 +177,21 @@
 }
 
 .projects-text-area::after {
-    content: ""; /* add a pseudo-element to the div */
-    position: absolute; /* position the pseudo-element absolutely within the div */
-    bottom: 0; /* position the pseudo-element at the bottom of the div */
-    left: 20%; /* move the pseudo-element to the right by 20% (80% - 60%) */
-    width: 60%; /* set the width of the border to 60% */
-    height: 3px; /* set the height of the border */
-    background-color: var(--base-color2); /* set the color of the border */
-  }
+    content: "";
+    /* add a pseudo-element to the div */
+    position: absolute;
+    /* position the pseudo-element absolutely within the div */
+    bottom: 0;
+    /* position the pseudo-element at the bottom of the div */
+    left: 20%;
+    /* move the pseudo-element to the right by 20% (80% - 60%) */
+    width: 60%;
+    /* set the width of the border to 60% */
+    height: 3px;
+    /* set the height of the border */
+    background-color: var(--base-color2);
+    /* set the color of the border */
+}
 
 
 .grid-container {
