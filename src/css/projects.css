@@ -121,15 +121,21 @@
     transform: rotate(180deg);
 }
 
+.skills-title-down-arrow {
+    right: unset;
+    left: 70px;
+    top: 50% !important;
+}
+
 .title-down-arrow {
     right: unset;
-    left: max(22%, 200px);
-    top: 20% !important;
+    left: 200px;
+    top: 50% !important;
 }
 
 .work-title-area {
     padding-top: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
 }
 
 .collapsible-content {
@@ -148,6 +154,10 @@
 
 .work {
     padding-left: 25px;
+}
+
+.skill-title {
+    width: 100%;
 }
 
 .role {
@@ -175,10 +185,6 @@
     text-decoration: underline;
     text-decoration-color: var(--base-color2);
     text-decoration-thickness: 2px;
-}
-
-.list-title {
-    /* text-align: center; */
 }
 
 .skill-item {
