@@ -4,7 +4,7 @@
     --row-increment: 10px;
     --card-small: 30;
     --card-medium: 38;
-    --card-large: 45;
+    --card-large: 48;
 }
 
 .project-main {
@@ -15,7 +15,7 @@
 
 .back-row {
     width: 100%;
-    height: 50px;
+    height: 70px;
     display: flex;
     justify-content: center;
     text-decoration: none;
@@ -29,6 +29,7 @@
     transform: rotate(90deg);
     transition: 0.4s;
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 .back-row:hover .projects-arrow {
@@ -47,14 +48,23 @@
     padding-bottom: 20px;
     position: relative;
     color: var(--spare-color);
-    width: 70%;
+    width: 80%;
     padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .skills-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 0.7fr 1fr;
     list-style-position: inside;
+    column-gap: 20px;
+}
+
+.skill-current {
+    padding-top: 15px;
+    padding-bottom: 0px;
 }
 
 .skills-explaination {
@@ -113,7 +123,7 @@
 
 .title-down-arrow {
     right: unset;
-    left: 22%;
+    left: max(22%, 200px);
     top: 20% !important;
 }
 
@@ -133,7 +143,7 @@
 }
 
 .open {
-    max-height: 1000px;
+    max-height: 2000px;
 }
 
 .work {
@@ -168,7 +178,7 @@
 }
 
 .list-title {
-    font-size: 1.4rem !important;
+    /* text-align: center; */
 }
 
 .skill-item {
@@ -266,16 +276,21 @@
 .project-description {
     color: var(--spare-color);
     font-family: 'Lora', serif;
+    text-align: center;
 }
 
 .project-heading {
-    text-align: center;
     text-decoration: underline var(--base-color2) 4px;
 }
 
 .project-description {
     padding-left: 3%;
     padding-right: 3%;
+    padding-top: 10px;
+}
+
+.project-link {
+    text-decoration: none;
 }
 
 .tail {

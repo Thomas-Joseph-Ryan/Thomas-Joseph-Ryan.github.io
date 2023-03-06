@@ -42,7 +42,9 @@ class BorderGenerator {
         } else {
           content.classList.add("open");
           arrow.classList.add('list-arrow-rotate');
-          content.style.maxHeight = content.scrollHeight + 'px';
+          // This is a strange line of code. It allows the list to 
+          // animate smoothly, but it caps the max height.
+          content.style.maxHeight = content.scrollHeight*1.3 + 'px';
         }
         console.log(content.classList.toString());
       });
