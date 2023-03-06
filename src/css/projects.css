@@ -34,6 +34,7 @@
 
 .back-row:hover .projects-arrow {
     transform: rotate(90deg) scale(1.5);
+    opacity: 1;
 }
 
 .project-page-content {
@@ -185,6 +186,16 @@
     text-decoration: underline;
     text-decoration-color: var(--base-color2);
     text-decoration-thickness: 2px;
+}
+
+.projects-area-title {
+    font-size: 1.4rem;
+    color: var(--spare-color);
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: var(--base-color2);
+    text-decoration-thickness: 2px;
+    padding-left: 10%;
 }
 
 .skill-item {
