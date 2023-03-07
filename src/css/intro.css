@@ -11,9 +11,11 @@ body {
     overflow: hidden;
 }
 
-/* .name-wrapper {
-    margin: 0 auto;
-    padding-top: 25vh;
+.name-wrapper {
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+    
 }
 
 .name-wrapper > p {
@@ -21,7 +23,13 @@ body {
     font-family: 'Lora', serif;
     font-size: 2.4rem;
     text-align: center;
-} */
+    opacity: 0;
+    transition: 2s;
+}
+
+.name-wrapper[data-status="activated"] > p{
+    opacity: 1;
+}
 
 .nav-text {
     opacity: 0;

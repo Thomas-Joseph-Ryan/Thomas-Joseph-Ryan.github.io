@@ -37,6 +37,7 @@ class Navigation {
                 this.leftNav.dataset.status = "activated";
                 this.centerNav.dataset.status = "activated";
                 this.rightNav.dataset.status = "activated";
+                document.getElementById("name-wrapper").dataset.status = "activated";
             };
 
             // add an event listener to the beforeunload event to remove the sessionStorage item on page unload
@@ -50,6 +51,7 @@ class Navigation {
             this.leftNav.dataset.status = "activated";
             this.centerNav.dataset.status = "activated";
             this.rightNav.dataset.status = "activated";
+            document.getElementById("name-wrapper").dataset.status = "activated";
         }
     }
 

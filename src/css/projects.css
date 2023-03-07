@@ -137,6 +137,45 @@
 .work-title-area {
     padding-top: 20px;
     padding-bottom: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.expand-icon {
+    width: 15px;
+    height: 15px;
+    /* border: 1px solid var(--base-color2); */
+    margin-left: 10px;
+    position: relative;
+}
+
+.expand-text {
+    margin-left: 7px;
+    opacity: 0;
+    transition: 300ms;
+    padding-top: 10px;
+    font-size: 0.7rem;
+}
+
+.work-title-area:hover .expand-text{
+    opacity: 1;
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--spare-color);
+    top: 49%;
+    transition: 1s;
+}
+
+.line:nth-child(2) {
+    transform: rotate(90deg);
+}
+
+.expanded-icon > .line:nth-child(2) {
+    transform: rotate(0deg) !important;
 }
 
 .collapsible-content {

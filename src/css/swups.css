@@ -1,13 +1,13 @@
 .transition-swipe-up {
-    transition: 0.4s;
+    transition: 1s;
 }
 
 html.is-animating .transition-swipe-up {
-    transform: translateY(-70%);
+    transform: translateY(-100%);
 }
 
 html.is-leaving .transition-swipe-up {
-    transform: translateY(-70%);
+    transform: translateY(-100%);
     transition: 1s;
 }
 
@@ -49,3 +49,4 @@ html.is-animating .transition-swipe-left{
 html.is-rendering .transition-swipe-left {
     transition: 0.8s;
 }
+
