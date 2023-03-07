@@ -4,27 +4,261 @@
     --row-increment: 10px;
     --card-small: 30;
     --card-medium: 38;
-    --card-large: 45;
+    --card-large: 48;
 }
 
 .project-main {
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
 }
 
 .back-row {
     width: 100%;
-    height: 50px;
+    height: 70px;
     display: flex;
     justify-content: center;
     text-decoration: none;
+
 }
 
 .projects-arrow {
     color: var(--spare-color);
-    opacity: 0.4;
+    opacity: 0.6;
+    font-size: 2rem;
+    transform: rotate(90deg);
+    transition: 0.4s;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.back-row:hover .projects-arrow {
+    transform: rotate(90deg) scale(1.5);
+    opacity: 1;
+}
+
+.project-page-content {
+    overflow-y: auto;
+}
+
+/* Text Area */
+
+.projects-text-area {
+    /* padding-left: 100px; */
+    margin: 0 auto;
+    padding-bottom: 20px;
+    position: relative;
+    color: var(--spare-color);
+    width: 80%;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr 1fr;
+    list-style-position: inside;
+    column-gap: 20px;
+}
+
+.skill-current {
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
+.skills-explaination {
+    font-size: 1.3rem;
+    padding-top: 20px;
+    text-align: center;
+    padding-bottom: 10px;
+    font-style: italic;
+
+}
+
+.skills-highlight {
+    background: linear-gradient(to bottom,
+            transparent 40%,
+            var(--base-color2) 100%);
+}
+
+.work-list {
+    list-style: none;
+    padding-top: 20px;
+}
+
+.work {
+    padding-bottom: 20px;
+}
+
+.collapsible-toggle {
+    position: relative;
+    cursor: pointer;
+    transform: translate(0, 0);
+    transition: transform 0.3s ease-in-out;
+    background: var(--background-color);
+}
+
+/* .collapsible-toggle:hover {
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    transform: translate(1px, -1px); */
+/* } */
+
+.list-down-arrow {
+    position: absolute;
+    right: 5%;
+    top: 45%;
+    font-size: 1.3rem;
+    opacity: 0.6;
+    transition: 0.2s;
+}
+
+.collapsible-toggle:hover .list-down-arrow{
+    opacity: 1;
+}
+
+.list-arrow-rotate {
+    transform: rotate(180deg);
+}
+
+.skills-title-down-arrow {
+    right: unset;
+    left: 70px;
+    top: 50% !important;
+}
+
+.title-down-arrow {
+    right: unset;
+    left: 200px;
+    top: 50% !important;
+}
+
+.work-title-area {
+    padding-top: 20px;
+    padding-bottom: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.expand-icon {
+    width: 15px;
+    height: 15px;
+    /* border: 1px solid var(--base-color2); */
+    margin-left: 10px;
+    position: relative;
+}
+
+.expand-text {
+    margin-left: 7px;
+    opacity: 0;
+    transition: 300ms;
+    padding-top: 10px;
+    font-size: 0.7rem;
+}
+
+.work-title-area:hover .expand-text{
+    opacity: 1;
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--spare-color);
+    top: 49%;
+    transition: 1s;
+}
+
+.line:nth-child(2) {
     transform: rotate(90deg);
 }
+
+.expanded-icon > .line:nth-child(2) {
+    transform: rotate(0deg) !important;
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transform-origin: bottom;
+    transition: max-height 0.5s ease-out;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.open {
+    max-height: 2000px;
+}
+
+.work {
+    padding-left: 25px;
+}
+
+.skill-title {
+    width: 100%;
+}
+
+.role {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-style: normal;
+    padding-bottom: 4px;
+}
+
+.work-name {
+    display: block;
+    font-size: 1.1rem;
+    font-style: normal;
+    padding-bottom: 4px;
+}
+
+.date {
+    display: block;
+    padding-bottom: 4px;
+}
+
+.projects-title {
+    font-size: 1.4rem;
+    text-decoration: underline;
+    text-decoration-color: var(--base-color2);
+    text-decoration-thickness: 2px;
+}
+
+.projects-area-title {
+    font-size: 1.4rem;
+    color: var(--spare-color);
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: var(--base-color2);
+    text-decoration-thickness: 2px;
+    padding-left: 10%;
+}
+
+.skill-item {
+    padding-top: 7px;
+    padding-left: 10px;
+}
+
+.projects-text-area::after {
+    content: "";
+    /* add a pseudo-element to the div */
+    position: absolute;
+    /* position the pseudo-element absolutely within the div */
+    bottom: 0;
+    /* position the pseudo-element at the bottom of the div */
+    left: 20%;
+    /* move the pseudo-element to the right by 20% (80% - 60%) */
+    width: 60%;
+    /* set the width of the border to 60% */
+    height: 3px;
+    /* set the height of the border */
+    background-color: var(--base-color2);
+    /* set the color of the border */
+}
+
 
 .grid-container {
     width: 100%;
@@ -32,25 +266,27 @@
     align-self: flex-end;
     display: flex;
     justify-content: center;
+    /* overflow-y: auto; */
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, var(--card-width));
     grid-auto-rows: var(--row-increment);
-    width: 100%;
+    width: 70%;
     height: 100%;
-    padding: 10px 20px 0px 20px;
-    overflow-y: auto;
+    margin: 0 auto;
+    overflow-y: unset;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .project {
-    --inline: 8px;
+    --inline: 9px;
     --block: 0;
     --duration: 150ms;
     --padding: 3px;
-    --border: 4px;
+    --border: 5px;
     padding: var(--padding);
     margin: 15px 10px;
     box-shadow: inset 0 0 0 var(--border) var(--spare-color);
@@ -58,6 +294,8 @@
     overflow: hidden;
     cursor: pointer;
     display: grid;
+    grid-column: auto;
+    grid-row: auto;
 }
 
 .project-small {
@@ -90,28 +328,25 @@
     border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
 }
 
-/* .project-img::after {
-    content: "";
-    display: block;
-    width: 60%;
-    background: var(--base-color2);
-    height: 2px;
-    margin-top: 10px;
-} */
-
 .project-heading,
 .project-description {
     color: var(--spare-color);
     font-family: 'Lora', serif;
+    text-align: center;
 }
 
 .project-heading {
-    text-align: center;
+    text-decoration: underline var(--base-color2) 4px;
 }
 
 .project-description {
     padding-left: 3%;
     padding-right: 3%;
+    padding-top: 10px;
+}
+
+.project-link {
+    text-decoration: none;
 }
 
 .tail {
@@ -183,3 +418,5 @@
 .snake:hover .tail {
     --block: 100%;
 }
+
+/* Make blue gradient up after snake trail finishes */
