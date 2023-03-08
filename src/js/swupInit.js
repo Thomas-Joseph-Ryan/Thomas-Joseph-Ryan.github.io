@@ -2,6 +2,7 @@ import Swup from 'swup';
 import Navigation from "./intro";
 import RandomImageFocus from './about-me';
 import BorderGenerator from './projects';
+import CopyOnClick from './contact';
 // import SwupPreloadPlugin from '@swup/preload-plugin';
 
 const swup = new Swup({
@@ -23,8 +24,8 @@ function init() {
     }
 
     if (document.querySelector('#contact-page-area')) {
-        // ...
         console.log("On contact page")
+        new CopyOnClick("email", "tjryan13579@gmail.com")
     }
 
     if (document.querySelector("#project-container")) {

@@ -106,7 +106,8 @@ main {
   text-align: left;
   font-size: 1.6rem;
   text-decoration: underline;
-  text-decoration-color: var(--base-color1);
+  -webkit-text-decoration-color: var(--base-color1);
+          text-decoration-color: var(--base-color1);
   text-decoration-thickness: 2px;
   /* color: var(--base-color1); */
 }
@@ -124,7 +125,7 @@ main {
 
 .paragraph {
   display: block;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 #toggle-button {
@@ -166,6 +167,7 @@ main {
   height: 100%;
   width: 160px;
   transition: 0.4s;
+  padding-left: 50px;
 }
 
 .back-slide:hover {
@@ -173,7 +175,7 @@ main {
 }
 
 .about-arrow {
-  font-size: 2rem;
+  font-size: 3rem;
   color: var(--spare-color);
   opacity: 0.6;
   transform: scale(-1);
