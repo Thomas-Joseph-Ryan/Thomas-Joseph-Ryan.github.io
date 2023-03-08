@@ -26,14 +26,13 @@
     color: var(--spare-color);
     opacity: 0.6;
     font-size: 2rem;
-    transform: rotate(90deg);
     transition: 0.4s;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .back-row:hover .projects-arrow {
-    transform: rotate(90deg) scale(1.5);
+    transform: scale(1.5);
     opacity: 1;
 }
 
@@ -146,7 +145,7 @@
     height: 2rem;
     margin-left: 10px;
     position: relative;
-    border-radius: 10%;
+    border-radius: 25%;
     background: var(--base-color2);
     display: flex;
     align-items: center;
