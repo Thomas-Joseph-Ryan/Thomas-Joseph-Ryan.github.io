@@ -1099,6 +1099,7 @@ main {
 @media screen and (max-width: 480px) {
   .content-area {
     flex-direction: column;
+    padding-bottom: 35px;
   }
 }
 
