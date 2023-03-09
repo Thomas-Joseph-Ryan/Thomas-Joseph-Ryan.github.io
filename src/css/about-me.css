@@ -27,9 +27,6 @@ main {
   display: none;
 }
 
-
-
-
 /* Create four equal columns that sits next to each other */
 .column {
   flex: 32%;
@@ -41,7 +38,7 @@ main {
   margin-top: 0.5px;
   vertical-align: middle;
   width: 100%;
-  opacity: 0.2;
+  opacity: 0.1;
   transition: 1s;
 }
 
@@ -189,11 +186,10 @@ main {
   transform: scale(-1.5);
 }
 
-/* TODO: Finish the text for the about me page, then find the pixel width where scrolling is necessary and 
-  create a media function to allow scrolling at that point by turning on the cursor capture for the .text-container
-*/
+.about-section:last-of-type {
+  padding-bottom: 30px;
+}
 
-/* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 1200px) {
   .column {
     flex: 100%;
@@ -213,7 +209,6 @@ main {
   }
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 730px) {
   .column {
     flex: 100%;
