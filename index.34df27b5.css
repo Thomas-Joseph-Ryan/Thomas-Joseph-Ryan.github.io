@@ -294,14 +294,14 @@ body {
 
 @media only screen and (max-width: 480px) {
   :root {
-    --radius: 10px;
-    --right-box-offset: 55px;
-    --center-scale: .46;
+    --radius: 5px;
+    --right-box-offset: 60px;
+    --center-scale: .51;
     --nav-box-height: 80px;
   }
 
   .nav-dot[data-status="activated"] > .center-box > .nav-text {
-    font-size: .7rem;
+    font-size: .8rem;
     transition-duration: 0s;
   }
 
