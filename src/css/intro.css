@@ -292,6 +292,7 @@ body {
 
 /* Media Queries */
 
+/* Large screen */
 @media only screen and (max-width: 1250px) {
     :root {
         --radius: 30px;
@@ -314,7 +315,8 @@ body {
     }
 }
 
-@media only screen and (max-width: 870px) {
+/* Small screen / laptop support */
+@media only screen and (max-width: 1024px) {
     :root {
         --radius: 20px;
 
@@ -330,7 +332,9 @@ body {
     }
 }
 
-@media only screen and (max-width: 660px) {
+
+/* Tablet Support */
+@media only screen and (max-width: 768px) {
     :root {
         --radius: 10px;
 
@@ -346,18 +350,28 @@ body {
     }
 }
 
-@media only screen and (max-width: 361px) {
+/* Phone support */
+@media only screen and (max-width: 480px) {
     :root {
-        --radius: 10px;
+        --radius: 15px;
 
         /* To create expanding nav boxes */
-        --right-box-offset: 60px;
-        --center-scale: 0.51;
+        --right-box-offset: 80px;
+        --center-scale: 0.66;
         --nav-box-height: 80px;
+    }
+
+    .nav-wrapper {
+        width: 80%;
+        left: 10%;
     }
 
     .nav-dot[data-status="activated"]>.center-box>.nav-text {
         transition-duration: 0ms;
-        font-size: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .name-wrapper>p {
+        font-size: 1.6rem;
     }
 }
