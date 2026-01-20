@@ -603,7 +603,7 @@ function unload() {
 }
 swup.on("willReplaceContent", unload);
 
-},{"swup":"5QjrV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./intro":"4V73i","./about-me":"hYjW6","./projects":"82j8t","./contact":"3C9CX"}],"5QjrV":[function(require,module,exports) {
+},{"swup":"5QjrV","./intro":"4V73i","./about-me":"hYjW6","./projects":"82j8t","./contact":"3C9CX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5QjrV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Location", ()=>p);
